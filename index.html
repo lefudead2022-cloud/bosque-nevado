@@ -133,7 +133,7 @@
   });
 
   playBtn.addEventListener('click', async () => {
-    await enterFullscreen();
+    try { await enterFullscreen(); } catch (e) { console.warn('fullscreen:', e); }
     try { await audio.play(); } catch (e) { console.error(e); }
     bg.classList.add('forest');
     snow.classList.add('active');
